@@ -13,11 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-	return 'The Vinyl Shop';
-});
+//Route::view('/','welcome');
 
-Route::get('contact-us', function () {
-    return 'Contact info';
+
+
+Route::view('/', 'home' );
+Route::get('itunes', 'ItunesController@index');
+Route::get('shop', 'ShopController@index');
+Route::get('shop_alt', 'ShopController@shop_alt');
+Route::get('shop/{id}', 'ShopController@show');
+Route::view('contact-us', 'contact' );
+Route::prefix('admin')->group(function () {
+    Route::redirect('/', '/admin/records');
+    Route::get('records','Admin\RecordController@index' );
 });
