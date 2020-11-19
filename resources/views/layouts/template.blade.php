@@ -18,6 +18,12 @@
 </main>
 <script src="{{ mix('js/app.js') }}"></script>
 @yield('script_after')
+@yield('script_after')
+@if(env('APP_DEBUG'))
+    <script>
+        $('form').attr('novalidate', 'true');
+    </script>
+@endif
 {{--
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>--}}
